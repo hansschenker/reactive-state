@@ -6,8 +6,9 @@ const BundleAnalyzerPlugin =
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: path.resolve(__dirname, 'src/index.ts'),
+    bundle: path.resolve(__dirname, './src/index.ts'),
   },
+  resolve: { extensions: ['.ts', '.js','.jsx','.tsx']},
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
@@ -28,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
       },
       {
